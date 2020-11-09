@@ -63,7 +63,18 @@ namespace CSharpDex
             pokeName.Content = SourcePokemon.Name;
             pokeNumber.Content = SourcePokemon.Number;
             primaryType.Source = new BitmapImage(new Uri(@"C:\Users\falco\source\repos\CSharpDex\res\types\type_" + SourcePokemon.PrimaryType.ToLower() + ".png"));
-            if (SourcePokemon.SecondaryType != "") secondaryType.Source = new BitmapImage(new Uri(@"C:\Users\falco\source\repos\CSharpDex\res\types\type_" + SourcePokemon.SecondaryType.ToLower() + ".png"));
+
+            // Secondary type logic.
+            if (SourcePokemon.SecondaryType != "")
+            {
+                secondaryType.Visibility = Visibility.Visible;
+                secondaryType.Source = new BitmapImage(new Uri(@"C:\Users\falco\source\repos\CSharpDex\res\types\type_" + SourcePokemon.SecondaryType.ToLower() + ".png"));
+            }
+
+            else
+            {
+                secondaryType.Visibility = Visibility.Hidden;
+            }
         }
 
         private void ShowPokemon(object sender, RoutedEventArgs args)
